@@ -60,7 +60,7 @@
   align-items: center;
 }
 
-.shopping_cart,
+.like,
 .mypage {
   position: relative;
   display: flex;
@@ -70,12 +70,12 @@
   cursor: pointer;
 }
 
-.shopping_cart {
+.like {
   width: 50px;
   height: 50px;
 }
 
-.shopping_cart .new_shopping_cart {
+.like .new_like {
   position: absolute;
   width: 15px;
   height: 15px;
@@ -85,7 +85,7 @@
   border-radius: 50%;
 }
 
-.shopping_cart .new_shopping_cart p {
+.like .new_like p {
   position: relative;
   top: 50%;
   left: 45%;
@@ -100,12 +100,12 @@
   margin-left: 20px;
 }
 
-.shopping_cart img {
+.like img {
   width: 32px;
   height: 32px;
 }
 
-.shopping_cart span,
+.like span,
 .mypage span {
   font-size: 12px;
   line-height: 14px;

@@ -1,8 +1,9 @@
 import styles from "./topNavigationBar.module.css";
 import { Link } from "react-router-dom";
 import React , {useState} from "react";
+import { AiOutlineStar } from "react-icons/ai";
 
-export const TopNavigationBar = ({data, setData}) => {
+export const TopNavigationBar = ({data, setData, like, setSelectPage}) => {
 
   const [input, setInput] = useState('');
 
@@ -24,8 +25,8 @@ export const TopNavigationBar = ({data, setData}) => {
           }
         }
     )
-
     setData(test);
+    setSelectPage(1);
   }
 
   const onKeyPress = (e)=>{
@@ -50,6 +51,17 @@ export const TopNavigationBar = ({data, setData}) => {
       </div>
 
       <div className={styles.menu}>
+      <Link to="/like">
+          <div className={styles.like}>
+            <AiOutlineStar style={{width:"32px", height:"32px", color:"black"}}/>
+            <span>즐겨찾기</span>
+            {like.length >= 1 ? (
+              <div>
+                <p>{like.length}</p>
+              </div>
+            ) : ""}
+          </div>
+        </Link>
         <Link to="">
           <div className={styles.mypage}>
             <img src="/images/icon-user.svg" alt="user" />

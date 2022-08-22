@@ -5,16 +5,29 @@ import Home from "./pages/home";
 // import dummy from "../../db/mockAttraction.json";
 import dummy from "../src/db/mockAttraction.json";
 import { useState } from "react";
+import { Detail } from "./components/detail/Detail";
+import { Like } from "./components/like/Like";
 
 function App() {
 
   const [data, setData] = useState(dummy);
+  const [like, setLike] = useState([]);
+  const [selectPage, setSelectPage] = useState(1);
+  const [postsPerPage, setPostPerPage] = useState(6);
 
   return (
     <BrowserRouter>
-      <TopNavigationBar data={data} setData={setData}/>
+      <TopNavigationBar data={data} setData={setData} like={like} setSelectPage={setSelectPage} />
       <Routes>
-        <Route path="/" element={<Home items={data}/>} />
+        <Route path="/" element={<Home
+          items={data}
+          setData={setData}
+          selectPage={selectPage}
+          postsPerPage={postsPerPage}
+          setSelectPage={setSelectPage}
+        />} />
+        <Route path="/detail/:id" element={<Detail items={data} like={like} setLike={setLike} />} />
+        <Route path="/Like" element={<Like like={like} setLike={setLike} />} />
       </Routes>
     </BrowserRouter>
   );
