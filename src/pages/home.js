@@ -8,10 +8,12 @@ const Home = (props) => {
   const selectPagep = props.selectPage;
   const postsPerPagep = props.postsPerPage;
   const setSelectPage = props.setSelectPage;
+  const dataForSearching = props.dataForSearching;
 
   return <Main
     homeprops={homep}
     setData={setData}
+    dataForSearching={dataForSearching}
     like={like}
     setLike={setLike}
     selectPage={selectPagep}
