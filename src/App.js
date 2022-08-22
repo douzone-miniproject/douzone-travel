@@ -11,13 +11,19 @@ import { Like } from "./components/like/Like";
 function App() {
 
   const [data, setData] = useState(dummy);
+  const [dataForSearching, setDataForSearching] = useState(dummy)
   const [like, setLike] = useState([]);
   const [selectPage, setSelectPage] = useState(1);
   const [postsPerPage, setPostPerPage] = useState(6);
 
   return (
     <BrowserRouter>
-      <TopNavigationBar data={data} setData={setData} like={like} setSelectPage={setSelectPage} />
+      <TopNavigationBar
+          data={data}
+          setData={setData}
+          like={like}
+          setSelectPage={setSelectPage}
+          dataForSearching={dataForSearching}/>
       <Routes>
         <Route path="/" element={<Home
           items={data}
@@ -25,6 +31,7 @@ function App() {
           selectPage={selectPage}
           postsPerPage={postsPerPage}
           setSelectPage={setSelectPage}
+          dataForSearching={dataForSearching}
         />} />
         <Route path="/detail/:id" element={<Detail items={data} like={like} setLike={setLike} />} />
         <Route path="/Like" element={<Like like={like} setLike={setLike} />} />
