@@ -1,10 +1,7 @@
 import styles from "./Like.module.css";
 
-export default function LikeList({like, setLike}) {
-  console.log(like)
-  const del = () => {
-    setLike([]);
-  }
+export default function LikeList({like, onRemove}) {
+
   return (
     <section className={styles.like_list}>
       <input type="checkbox" />
@@ -23,7 +20,7 @@ export default function LikeList({like, setLike}) {
       <div></div>
 
       <div className={styles.like_btn_wrap}>
-        <button className={styles.btn_submit} onClick={del}>삭제</button>
+        <button className={styles.btn_submit} onClick={() => onRemove(like.id)}>삭제</button>
       </div>
     </section>
   )

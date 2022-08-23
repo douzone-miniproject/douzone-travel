@@ -29,8 +29,6 @@ export const Main = (props) => {
 
   let results = currentPosts(mainp);
 
-  console.log(results);
-
   return (
     <>
       <EventBanner />

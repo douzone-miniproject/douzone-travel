@@ -117,6 +117,15 @@
   height: 32px;
 }
 
+.count{
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 0;
+  right: -5px;
+  color: #eb5757;
+}
+
 @media (max-width: 768px) {
   .input_wrap {
     display: none;

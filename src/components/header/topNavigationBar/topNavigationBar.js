@@ -56,7 +56,7 @@ export const TopNavigationBar = ({data, setData, like, setSelectPage}) => {
             <AiOutlineStar style={{width:"32px", height:"32px", color:"black"}}/>
             <span>즐겨찾기</span>
             {like.length >= 1 ? (
-              <div>
+              <div className={styles.count}>
                 <p>{like.length}</p>
               </div>
             ) : ""}

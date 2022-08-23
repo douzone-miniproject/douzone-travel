@@ -7,6 +7,7 @@ import dummy from "../src/db/mockAttraction.json";
 import { useState } from "react";
 import { Detail } from "./components/detail/Detail";
 import { Like } from "./components/like/Like";
+import Footer from "./components/Footer/Footer";
 
 function App() {
 
@@ -27,8 +28,9 @@ function App() {
           setSelectPage={setSelectPage}
         />} />
         <Route path="/detail/:id" element={<Detail items={data} like={like} setLike={setLike} />} />
-        <Route path="/Like" element={<Like like={like} setLike={setLike} />} />
+        <Route path="/Like" element={<Like like={like} setLike={setLike}/>} />
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }
