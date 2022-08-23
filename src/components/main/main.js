@@ -8,8 +8,6 @@ export const Main = (props) => {
   const mainp = props.homeprops;
   const gu = ["강서구", "금정구", "기장군", "남구", "동구", "동래구", "부산진구", "북구", "사하구", "서구", "수영구", "영도구", "중구", "해운대구"];
 
-
-
   // 페이지 & 컨텐츠 수 계산을 위한 State
   // const [ selectPage, setSelectPage] = useState(1);
   // const [ postsPerPage, setPostPerPage] = useState(6);

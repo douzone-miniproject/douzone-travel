@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import React , {useState} from "react";
 import { AiOutlineStar } from "react-icons/ai";
 
-export const TopNavigationBar = ({data, setData, like, setSelectPage}) => {
+export const TopNavigationBar = ({data, setData, like, setSelectPage, dataForSearching}) => {
 
   const [input, setInput] = useState('');
 
@@ -31,7 +31,7 @@ export const TopNavigationBar = ({data, setData, like, setSelectPage}) => {
 
   const onKeyPress = (e)=>{
       if(e.key === 'Enter'){
-          handleSearch();
+
       }
   }
 
@@ -46,7 +46,7 @@ export const TopNavigationBar = ({data, setData, like, setSelectPage}) => {
         </Link>
         <div className={styles.input_wrap}>
           <input type="text" placeholder="가고싶은 관광지를 검색해보세요!" onChange={onChange} onKeyDown={onKeyPress}/>
-          <img src="/images/icon-search.svg" onClick={handleSearch} alt="search" />
+          <img src="/images/icon-search.svg" />
         </div>
       </div>
 
