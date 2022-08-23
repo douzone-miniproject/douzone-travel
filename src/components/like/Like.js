@@ -2,6 +2,9 @@ import styles from "./Like.module.css";
 import LikeList from "./LikeList";
 
 export const Like = ({like, setLike}) => {
+  const onRemove = (id) => {
+    setLike(like.filter((data) => data.id !== id));
+  };
   return (
     <>
       <header className={styles.header}>
@@ -23,7 +26,7 @@ export const Like = ({like, setLike}) => {
             <h2>즐겨찾기에 추가한 관광지가 없습니다.</h2>
           </div>
         ) :
-        like.map((like, idx)=> <LikeList key={idx} like={like} setLike={setLike}/>)}
+        like.map((like, idx)=> <LikeList key={idx} like={like} onRemove={onRemove}/>)}
     </>
   );
 };
