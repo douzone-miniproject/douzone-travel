@@ -1,5 +1,5 @@
 import styles from "./main.module.css";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { EventBanner } from "../eventBanner/eventBanner";
 import Pagenation from "../Pagenation/Pagenation";
 import { Sight } from "../sights/Sight";
@@ -8,6 +8,23 @@ export const Main = (props) => {
   const mainp = props.homeprops;
   const gu = ["강서구", "금정구", "기장군", "남구", "동구", "동래구", "부산진구", "북구", "사하구", "서구", "수영구", "영도구", "중구", "해운대구"];
 
+  // const [ results, setResults ] = useState([]);
+
+  // const guSearch = (data) => {
+  //   const test = [];
+  //   mainp.forEach((attr) => {
+  //       const gu = attr.GUGUN_NM;
+
+  //       if (gu == data) {
+  //         test.push(attr);
+  //       }})
+
+    // setResults(test);
+    // console.log(test);
+
+    // results = test;
+
+  // }
 
 
   // 페이지 & 컨텐츠 수 계산을 위한 State
@@ -27,9 +44,16 @@ export const Main = (props) => {
     return currentPosts;
   }
 
+  // useEffect(() => {
+  //   setResults(currentPosts(mainp));
+  // },[]);
+  
   let results = currentPosts(mainp);
+  // setResults(currentPosts(mainp));
 
-  console.log(results);
+  // console.log(result);
+  // console.log(mainp);
+  // console.log(results);
 
   return (
     <>
