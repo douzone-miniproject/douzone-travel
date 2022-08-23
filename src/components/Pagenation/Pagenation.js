@@ -88,7 +88,7 @@ function Pagenation({ postsPerPage, totalPosts, paginate, selectPage }) {
     
     const Pageorder = (totalPosts, postsPerPage) => {
         const pageNumbers = [];
-        for(let i=1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+        for(let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
             pageNumbers.push(i);
         }
         return pageNumbers;
