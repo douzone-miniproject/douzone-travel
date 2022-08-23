@@ -1,5 +1,5 @@
 import styles from "./main.module.css";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { EventBanner } from "../eventBanner/eventBanner";
 import Pagenation from "../Pagenation/Pagenation";
 import { Sight } from "../sights/Sight";
@@ -11,6 +11,23 @@ export const Main = (props) => {
     const dataForSearching = props.dataForSearching;
     const setData = props.setData;
 
+  // const [ results, setResults ] = useState([]);
+
+  // const guSearch = (data) => {
+  //   const test = [];
+  //   mainp.forEach((attr) => {
+  //       const gu = attr.GUGUN_NM;
+
+  //       if (gu == data) {
+  //         test.push(attr);
+  //       }})
+
+    // setResults(test);
+    // console.log(test);
+
+    // results = test;
+
+  // }
 
     // 페이지 & 컨텐츠 수 계산을 위한 State
     // const [ selectPage, setSelectPage] = useState(1);
@@ -52,6 +69,7 @@ export const Main = (props) => {
                     return <Sight key={data.UC_SEQ} data={data} />
                 })}
             </main>
+
 
             <Pagenation
                 postsPerPage={postsPerPage}
