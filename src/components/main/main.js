@@ -3,10 +3,13 @@ import React, { useState } from 'react';
 import { EventBanner } from "../eventBanner/eventBanner";
 import Pagenation from "../Pagenation/Pagenation";
 import { Sight } from "../sights/Sight";
+import HandleSearch from "../search/HandleSearch";
 
 export const Main = (props) => {
   const mainp = props.homeprops;
-  const gu = ["강서구", "금정구", "기장군", "남구", "동구", "동래구", "부산진구", "북구", "사하구", "서구", "수영구", "영도구", "중구", "해운대구"];
+  const gu = ["강서구", "금정구", "기장군", "남구", "동구", "동래구", "부산진구", "북구", "사상구", "사하구", "서구", "수영구", "연제구", "영도구", "중구", "해운대구"];
+  const dataForSearching = props.dataForSearching;
+  const setData = props.setData;
 
   // 페이지 & 컨텐츠 수 계산을 위한 State
   // const [ selectPage, setSelectPage] = useState(1);
@@ -32,7 +35,7 @@ export const Main = (props) => {
       <EventBanner />
       <div className="btn_wrap" style={{ textAlign: 'center', marginBottom: '2rem' }}>
         {gu.map((data, idx) => {
-          return <button key={idx} className={styles.gu_btn}>{data}</button>
+          return <button key={idx} className={styles.gu_btn} onClick={()=>(HandleSearch(dataForSearching, setData, setSelectPage, data, "GUGUN_NM"))}>{data}</button>
         })}
       </div>
       <div className={styles.filter}>

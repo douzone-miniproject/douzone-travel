@@ -2,6 +2,7 @@ import styles from "./topNavigationBar.module.css";
 import { Link } from "react-router-dom";
 import React , {useState} from "react";
 import { AiOutlineStar } from "react-icons/ai";
+import HandleSearch from "../../search/HandleSearch";
 
 export const TopNavigationBar = ({data, setData, like, setSelectPage, dataForSearching}) => {
 
@@ -11,29 +12,11 @@ export const TopNavigationBar = ({data, setData, like, setSelectPage, dataForSea
     setInput(e.target.value);
   }
 
-  const handleSearch = ()=>{
-    const test = [];
-
-      // console.log(input);
-      // console.log("data : ", data);
-    data.forEach((item) => {
-        // console.log(item.MAIN_TITLE);
-          const title = item.MAIN_TITLE;
-            // console.log("data : ", item);
-          if (title.includes(input)) {
-            test.push(item)
-          }
-        }
-    )
-    setData(test);
-    setSelectPage(1);
-  }
-
   const onKeyPress = (e)=>{
-      if(e.key === 'Enter'){
-
-      }
-  }
+    if(e.key === 'Enter'){
+        HandleSearch(dataForSearching, setData, setSelectPage, input);
+    }
+}
 
 
   return (
@@ -46,7 +29,7 @@ export const TopNavigationBar = ({data, setData, like, setSelectPage, dataForSea
         </Link>
         <div className={styles.input_wrap}>
           <input type="text" placeholder="가고싶은 관광지를 검색해보세요!" onChange={onChange} onKeyDown={onKeyPress}/>
-          <img src="/images/icon-search.svg" />
+          <img src="/images/icon-search.svg" onClick={()=>(HandleSearch(dataForSearching, setData, setSelectPage, input, "MAIN_TITLE"))} alt="search"/>
         </div>
       </div>
 
