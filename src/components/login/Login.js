@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import App from "../../App";
+import { TopNavigationBar } from "../header/topNavigationBar/topNavigationBar";
 import styles from "./Login.module.css";
 
-function Login() {
+function Login({ login2, setLogin2, setLogin }) {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -30,13 +32,20 @@ function Login() {
       if (username === user.username.username) {
         if (password === user.password.password) {
           alert("로그인 성공!");
+          setLogin(true);
+          setLogin2(username);
           console.log("success");
-          window.location.href = "http://localhost:3000/";
+          // setTimeout(function () {
+          //   window.location.href = "http://localhost:3000/";
+          // }, 2000)
+        }else {
+          alert("아이디나 비밀번호가 틀렸습니다.")
         }
       }
     })
 
   }
+
 
   return (
     <div>
@@ -47,7 +56,7 @@ function Login() {
         <div className={styles.check_wrap}>
           <input className={styles.check} type="checkbox" />
           <span className={styles.id_save}>아이디 저장</span>
-          
+
         </div>
         <button className={styles.submit_btn} onClick={TryToLogin}>로그인</button>
       </div>
@@ -55,4 +64,4 @@ function Login() {
   )
 }
 
-export default Login
+export default Login;

@@ -23,7 +23,6 @@
   padding: 10px;
   margin-bottom: 10px;
   height: 50px;
-
 }
 
 input:focus {
@@ -32,7 +31,7 @@ input:focus {
 
 
 .check_wrap {
-  margin: 41px 0;
+  margin: 10px 0;
 }
 
 .id_save {
