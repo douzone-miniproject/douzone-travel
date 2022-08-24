@@ -3,8 +3,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { TopNavigationBar } from "./components/header/topNavigationBar/topNavigationBar";
 import Home from "./pages/home";
 // import dummy from "../../db/mockAttraction.json";
-import dummy from "../src/db/mockAttraction.json";
-import { useState } from "react";
+// import dummy from "../src/db/mockAttraction.json";
+import { useState, useEffect } from "react";
 import { Detail } from "./components/detail/Detail";
 import { Like } from "./components/like/Like";
 import Footer from "./components/Footer/Footer";
@@ -13,11 +13,20 @@ import { LoginReducer } from "./reducer/LoginReducer";
 import SignUp from "./components/signup/SignUp";
 import { Provider } from "react-redux";
 import Login from "./components/login/Login";
+import { fetchData } from "./api/getItems";
 
 function App() {
 
-  const [data, setData] = useState(dummy);
-  const [dataForSearching, setDataForSearching] = useState(dummy)
+  useEffect(() => {
+    fetchData()
+      .then(data => { setData(data); setDataForSearching(data); });
+  }, [])
+  
+
+  // const [data, setData] = useState(dummy);
+  // const [dataForSearching, setDataForSearching] = useState(dummy)
+  const [data, setData] = useState([]);
+  const [dataForSearching, setDataForSearching] = useState([]);
   const [like, setLike] = useState([]);
   const [selectPage, setSelectPage] = useState(1);
   const [postsPerPage, setPostPerPage] = useState(6);
