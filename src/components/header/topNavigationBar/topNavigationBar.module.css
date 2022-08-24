@@ -13,14 +13,14 @@
 }
 
 .inner .logo {
-  width: 124px;
-  height: 38px;
+  /* width: 124px;
+  height: 38px; */
   margin-right: 30px;
 }
 
 .inner .logo img {
-  width: 124px;
-  height: 38px;
+  width: 133px;
+  height: 80px;
 }
 
 .input_wrap {
