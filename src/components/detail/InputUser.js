@@ -24,8 +24,8 @@ function InputUser({username, lastName, onChange, onAdd}){
 
     return (
         <div>
-            <Input name={"name"} placeholder={"name"} onChange={onChange} value={username}/>
-            <Input name={"review"} placeholder={"review"} onChange={onChange} value={lastName}/>
+            <Input name={"name"} placeholder={"name"} onChange={onChange} value={username} size={5} />
+            <Input name={"review"} placeholder={"review"} onChange={onChange} value={lastName} size={50}/>
             <Button onClick={onAdd}>추가</Button>
         </div>
     );

@@ -10,6 +10,8 @@
 .comment_wrap {
 height: 200px;
 overflow: auto;  
+border: 1px solid black;
+border-radius: 5px;
 }
 
 
@@ -43,6 +45,15 @@ overflow: auto;
   white-space: nowrap;
 }
 
+
+
+/* .detailt_info .detail_link {
+  font-size: 1px;
+  textDecoration:'none'; 
+  text-decoration: none;
+  color:'black';
+} */
+
 .detail_info .detail_gu {
   font-size: 18px;
   line-height: 23px;
@@ -52,16 +63,25 @@ overflow: auto;
 
 .detail_info .detail_name {
   font-size: 36px;
+  font-weight: bold;
   line-height: 45px;
   color: #000000;
   margin-bottom: 20px;
+}
+
+.detail_info .detail_content {
+  font-size: 25px;
+}
+
+.detailt_info .detail_callnum {
+  font-size: 50px;
 }
 
 .detail_info {
   font-size: 25px;
   line-height: 45px;
   color: #000000;
-  margin-bottom: 138px;
+  margin-bottom: 20px;
 }
 
 .detail_info .unit {
