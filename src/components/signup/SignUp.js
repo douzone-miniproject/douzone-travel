@@ -18,6 +18,7 @@ function SignUp() {
 
     const TryToSignUp = () => {
         dispatch({type: 'signUp', username: {username}, password: {password}})
+        alert("회원 가입 성공!")
     }
 
     return (

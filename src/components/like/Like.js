@@ -2,9 +2,11 @@ import styles from "./Like.module.css";
 import LikeList from "./LikeList";
 
 export const Like = ({like, setLike}) => {
-  const onRemove = (id) => {
+
+    const onRemove = (id) => {
     setLike(like.filter((data) => data.id !== id));
   };
+
   return (
     <>
       <header className={styles.header}>

@@ -28,6 +28,7 @@ function Login(){
 
                if( username === user.username.username ){
                    if(password === user.password.password){
+                       alert("로그인 성공!")
                        console.log("success");
                    }
                }
