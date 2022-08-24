@@ -1,8 +1,24 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./Detail.module.css";
-
+import Comment from "./Comment";
+import styled from "styled-components";
 export const Detail = ({items, like, setLike}) => {
+  const Button = styled.button`
+  display: inline-block;
+  color: palevioletred;
+  font-size: 0.5em;
+  margin: 0.5em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+  display: block;
+`;
+
+  const TomatoButton = styled(Button)`
+  color: tomato;
+  border-color: tomato;
+`;
   const {id} = useParams();
   const [ detail, setDetail ] = useState({});
 
@@ -37,20 +53,25 @@ export const Detail = ({items, like, setLike}) => {
             <span>
               {detail.TITLE}
               <br/>
-              {detail.CNTCT_TEL}
+             <img height={"25px"} src="../images/free-icon-old-typical-phone-13936.png"></img> {detail.CNTCT_TEL}
               <br/>
-              <a href={detail.HOMEPAGE_URL} style={{textDecoration:'none', color:'black'}}>{'사이트 바로가기 : ' + detail.HOMEPAGE_URL}</a>
-            </span>
-          </div>
-          <span>리뷰</span>
-          <div className={styles.line}></div>
-
-          <span>리뷰내용 샬라샬라</span>
-
-          <div className={styles.line}></div>
-          <div>
+              
+              
             <button className={styles.btn} onClick={() => handleLike()}>즐겨찾기</button>
-          </div>
+          <div>
+              <TomatoButton as="a" href={detail.HOMEPAGE_URL}>{'사이트 바로가기 : ' + detail.HOMEPAGE_URL}</TomatoButton>
+              </div>
+              <span>리뷰 남기기</span>
+               <div className={styles.comment_wrap}>
+               <Comment />
+               </div>
+              </span>
+              
+            
+             </div>
+        
+          
+          
         </section>
       </main>
     </>
