@@ -2,9 +2,9 @@ import {combineReducers} from "redux";
 import {MemberReducer} from "./MemberReducer";
 import {SessionReducer} from "./SessionReducer";
 
-const RouteReducer = combineReducers({
+const MainReducer = combineReducers({
     MemberReducer,
     SessionReducer
 })
 
-export default RouteReducer
+export default MainReducer

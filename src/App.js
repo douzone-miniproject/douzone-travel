@@ -13,7 +13,7 @@ import {MemberReducer} from "./reducer/MemberReducer";
 import SignUp from "./components/signup/SignUp";
 import {Provider} from "react-redux";
 import Login from "./components/login/Login";
-import RootReducer from "./reducer/RootReducer";
+import MainReducer from "./reducer/MainReducer";
 
 function App() {
 
@@ -22,7 +22,7 @@ function App() {
   const [like, setLike] = useState([]);
   const [selectPage, setSelectPage] = useState(1);
   const [postsPerPage, setPostPerPage] = useState(6);
-  const store = createStore(RootReducer);
+  const store = createStore(MainReducer);
 
   return (
     <BrowserRouter>

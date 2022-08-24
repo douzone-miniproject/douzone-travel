@@ -12,7 +12,7 @@ export const Detail = ({items, like, setLike}) => {
     setDetail(items.find((data) => data.UC_SEQ === parseInt(id)));
   }, [id]);
 
-  const HandleLike = () => {
+  function HandleLike() {
 
     const dispatch = useDispatch();
 
