@@ -54,7 +54,7 @@ export const TopNavigationBar = ({data, setData, like, setSelectPage, dataForSea
         </Link>
           <Link to={"/signIn"}>
               <div className={styles.mypage}>
-                  <GoSignIn/>
+                  <GoSignIn style={{width:"32px", height:"32px", color:"black"}}/>
                   <span>가입</span>
               </div>
           </Link>
