@@ -34,12 +34,10 @@ export const Detail = ({items, like, setLike}) => {
           <div className={styles.detail_info}>
             <p className={styles.detail_gu}>{detail.GUGUN_NM}</p>
             <p className={styles.detail_name}>{detail.MAIN_TITLE}</p>
+            <p className={styles.detail_content}>{detail.TITLE}</p>
+            <p className={styles.detail_callnum} style={{fontSize:"17px", marginTop:"30px"}}>연락처 : {detail.CNTCT_TEL}</p>
             <span>
-              {detail.TITLE}
-              <br/>
-              {detail.CNTCT_TEL}
-              <br/>
-              <a href={detail.HOMEPAGE_URL} style={{textDecoration:'none', color:'black'}}>{'사이트 바로가기 : ' + detail.HOMEPAGE_URL}</a>
+              <a className={styles.detail_link} href={detail.HOMEPAGE_URL} style={{textDecoration:'none', color:'black', fontSize:'17px'}}>{'사이트 바로가기 : ' + detail.HOMEPAGE_URL}</a>
             </span>
           </div>
           <span>리뷰</span>
