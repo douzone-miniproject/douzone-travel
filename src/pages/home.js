@@ -14,8 +14,6 @@ const Home = (props) => {
     homeprops={homep}
     setData={setData}
     dataForSearching={dataForSearching}
-    like={like}
-    setLike={setLike}
     selectPage={selectPagep}
     postsPerPage={postsPerPagep}
     setSelectPage={setSelectPage}
