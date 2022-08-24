@@ -9,10 +9,11 @@ import { Detail } from "./components/detail/Detail";
 import { Like } from "./components/like/Like";
 import Footer from "./components/Footer/Footer";
 import {createStore} from "redux";
-import {LoginReducer} from "./reducer/LoginReducer";
+import {MemberReducer} from "./reducer/MemberReducer";
 import SignUp from "./components/signup/SignUp";
 import {Provider} from "react-redux";
 import Login from "./components/login/Login";
+import RootReducer from "./reducer/RootReducer";
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
   const [like, setLike] = useState([]);
   const [selectPage, setSelectPage] = useState(1);
   const [postsPerPage, setPostPerPage] = useState(6);
-  const store = createStore(LoginReducer, JSON.parse(localStorage.getItem('users')));
+  const store = createStore(RootReducer);
 
   return (
     <BrowserRouter>
@@ -29,8 +30,8 @@ function App() {
         <Provider store={store}>
       <Routes>
         <Route path="/" element={<Home
-          items={data}
-          setData={setData}
+            items={data}
+            setData={setData}
           selectPage={selectPage}
           postsPerPage={postsPerPage}
           setSelectPage={setSelectPage}

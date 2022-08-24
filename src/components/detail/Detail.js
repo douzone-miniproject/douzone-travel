@@ -1,16 +1,21 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./Detail.module.css";
+import {useDispatch, useSelector} from "react-redux";
 
 export const Detail = ({items, like, setLike}) => {
   const {id} = useParams();
   const [ detail, setDetail ] = useState({});
+  const users = useSelector(state => state);
 
   useEffect(() => {
     setDetail(items.find((data) => data.UC_SEQ === parseInt(id)));
   }, [id]);
 
-  const handleLike = () => {
+  const HandleLike = () => {
+
+    const dispatch = useDispatch();
+
     const likeItem = {
       id: detail.UC_SEQ,
       image: detail.MAIN_IMG_THUMB,
@@ -19,7 +24,11 @@ export const Detail = ({items, like, setLike}) => {
       tel: detail.CNTCT_TEL,
       title: detail.SUBTITLE,
     };
+
+    dispatch({type: 'addLike', like: detail.UC_SEQ });
+
     setLike([...like, likeItem]);
+
   };
 
   return (
@@ -49,7 +58,7 @@ export const Detail = ({items, like, setLike}) => {
 
           <div className={styles.line}></div>
           <div>
-            <button className={styles.btn} onClick={() => handleLike()}>즐겨찾기</button>
+            <button className={styles.btn} onClick={() => HandleLike()}>즐겨찾기</button>
           </div>
         </section>
       </main>

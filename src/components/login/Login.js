@@ -5,7 +5,7 @@ function Login(){
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const userReducer = useSelector(state => state);
+    const userReducer = useSelector(state => state.SessionReducer);
 
     const onChangeId = (e)=>{
         setUsername(e.target.value);
@@ -17,6 +17,7 @@ function Login(){
 
        const TryToLogin = ()=>{
            const users = userReducer;
+           const dispatch = useDispatch();
            // console.log(users[0].username);
 
            users.map((user)=>{
@@ -28,8 +29,8 @@ function Login(){
 
                if( username === user.username.username ){
                    if(password === user.password.password){
-                       alert("로그인 성공!")
-                       console.log("success");
+                       alert("로그인 성공!");
+                       dispatch({ type : 'login', username : {username} });
                    }
                }
            })
