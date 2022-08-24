@@ -1,8 +1,24 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./Detail.module.css";
-
+import Comment from "./Comment";
+import styled from "styled-components";
 export const Detail = ({items, like, setLike}) => {
+  const Button = styled.button`
+  display: inline-block;
+  color: palevioletred;
+  font-size: 0.5em;
+  margin: 0.5em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+  display: block;
+`;
+
+  const TomatoButton = styled(Button)`
+  color: tomato;
+  border-color: tomato;
+`;
   const {id} = useParams();
   const [ detail, setDetail ] = useState({});
 
@@ -36,19 +52,20 @@ export const Detail = ({items, like, setLike}) => {
             <p className={styles.detail_name}>{detail.MAIN_TITLE}</p>
             <p className={styles.detail_content}>{detail.TITLE}</p>
             <p className={styles.detail_callnum} style={{fontSize:"17px", marginTop:"30px"}}>연락처 : {detail.CNTCT_TEL}</p>
-            <span>
+            
               <a className={styles.detail_link} href={detail.HOMEPAGE_URL} style={{textDecoration:'none', color:'black', fontSize:'17px'}}>{'사이트 바로가기 : ' + detail.HOMEPAGE_URL}</a>
-            </span>
           </div>
-          <span>리뷰</span>
-          <div className={styles.line}></div>
-
-          <span>리뷰내용 샬라샬라</span>
-
-          <div className={styles.line}></div>
-          <div>
-            <button className={styles.btn} onClick={() => handleLike()}>즐겨찾기</button>
-          </div>
+          <span>
+            <button className={styles.btn} onClick={() => handleLike()}>즐겨찾기</button><br/>
+              <p style={{marginTop:"15px", marginBottom:"5px", fontWeight:"bold"}}>&#91; 리뷰 남기기 &#93;</p>
+               <div className={styles.comment_wrap}>
+                <Comment />
+               </div>
+              </span>
+              
+        
+          
+          
         </section>
       </main>
     </>
