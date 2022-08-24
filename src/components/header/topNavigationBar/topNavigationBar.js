@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import React , {useState} from "react";
 import { AiOutlineStar } from "react-icons/ai";
 import HandleSearch from "../../search/HandleSearch";
-import {GoSignIn} from "react-icons/go";
 
 export const TopNavigationBar = ({data, setData, like, setSelectPage, dataForSearching}) => {
 
@@ -46,19 +45,13 @@ export const TopNavigationBar = ({data, setData, like, setSelectPage, dataForSea
             ) : ""}
           </div>
         </Link>
-        <Link to="/login">
+        <Link to="">
           <div className={styles.mypage}>
             <img src="/images/icon-user.svg" alt="user" />
             <span>로그인</span>
           </div>
         </Link>
-          <Link to={"/signIn"}>
-              <div className={styles.mypage}>
-                  <GoSignIn/>
-                  <span>가입</span>
-              </div>
-          </Link>
       </div>
     </header>
   );
-}
+};
