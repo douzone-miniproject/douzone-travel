@@ -6,6 +6,7 @@ function Login(){
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const userReducer = useSelector(state => state.MemberReducer);
+    const dispatch = useDispatch();
 
     const onChangeId = (e)=>{
         setUsername(e.target.value);
@@ -18,9 +19,8 @@ function Login(){
        const TryToLogin = ()=>{
             
            const users = userReducer;
-           const dispatch = useDispatch();
+
            // console.log(users[0].username);
-           console.log("112dcdddfdsafdasdfsaasdfasdfdsafasdfasdfdsa")
 
            users.map((user)=>{
 

@@ -28,7 +28,7 @@ export const Like = ({like, setLike}) => {
             <h2>즐겨찾기에 추가한 관광지가 없습니다.</h2>
           </div>
         ) :
-        like.map((like, idx)=> <LikeList key={idx} like={like} onRemove={onRemove}/>)}
+        like.map((like, idx)=> <LikeList key={idx} likeList={like} onRemove={onRemove}/>)}
     </>
   );
 };

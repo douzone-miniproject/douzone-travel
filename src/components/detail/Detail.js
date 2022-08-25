@@ -6,15 +6,15 @@ import {useDispatch, useSelector} from "react-redux";
 export const Detail = ({items, like, setLike}) => {
   const {id} = useParams();
   const [ detail, setDetail ] = useState({});
-  const users = useSelector(state => state);
+  const users = useSelector(state => state.MemberReducer);
+  const loggedIn = useSelector(state=> state.SessionReducer);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setDetail(items.find((data) => data.UC_SEQ === parseInt(id)));
   }, [id]);
 
   function HandleLike() {
-
-    const dispatch = useDispatch();
 
     const likeItem = {
       id: detail.UC_SEQ,
@@ -25,7 +25,16 @@ export const Detail = ({items, like, setLike}) => {
       title: detail.SUBTITLE,
     };
 
-    dispatch({type: 'addLike', like: detail.UC_SEQ });
+    let index=0;
+
+    users.forEach((user)=>{
+      // console.log(user.username.username);
+      if( loggedIn === user.username.username ){
+        console.log("success");
+        dispatch({type: 'addLike', index: index , like: detail.UC_SEQ });
+      }
+      index++;
+    })
 
     setLike([...like, likeItem]);
 
@@ -53,8 +62,6 @@ export const Detail = ({items, like, setLike}) => {
           </div>
           <span>리뷰</span>
           <div className={styles.line}></div>
-
-          <span>리뷰내용 샬라샬라</span>
 
           <div className={styles.line}></div>
           <div>

@@ -1,3 +1,5 @@
+import {useSelector} from "react-redux";
+
 export function MemberReducer(state = JSON.parse(localStorage.getItem('users')), action){
 
     switch(action.type){
@@ -12,10 +14,9 @@ export function MemberReducer(state = JSON.parse(localStorage.getItem('users')),
                 return [...state, { 'username': action.username, 'password': action.password, like: [] }];
             }
         case 'addLike' :
-            const users = JSON.parse(localStorage.getItem('users'));
-            users.forEach((user)=>{
-
-            })
+            state[action.index].like.push(action.like);
+            localStorage.setItem('users', JSON.stringify(state));
+            return state;
 
         default :
 
