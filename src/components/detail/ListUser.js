@@ -16,15 +16,14 @@ color: tomato;
 border-color: tomato;
 `;
 
-function ListUser({data, delName, modify, onUpdateToggle, onSelectUser}){
+function ListUser({data, delName, modify, onUpdateToggle, onSelectUser, UC_SEQ}){
    
-
     return (
         <div>
             {data.map((ids)=>{
                 return (
                     <div key={ids.id}>
-                    <b style={{fontSize:'15px'}}>name : {ids.name} </b >&nbsp;&nbsp;&nbsp;&nbsp;<b style={{fontSize:'15px'}}> review : {ids.review}&nbsp;&nbsp;&nbsp;</b>
+                    <b style={{fontSize:'15px'}}> name : {ids.name} </b >&nbsp;&nbsp;&nbsp;&nbsp;<b style={{fontSize:'15px'}}> review : {ids.review}&nbsp;&nbsp;&nbsp;</b>
                 <Button onClick={()=>{
                     delName(ids.id)
                 }}>삭제</Button>

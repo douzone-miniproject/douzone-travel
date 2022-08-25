@@ -59,7 +59,7 @@ export const Detail = ({items, like, setLike}) => {
             <button className={styles.btn} onClick={() => handleLike()}>즐겨찾기</button><br/>
               <p style={{marginTop:"15px", marginBottom:"5px", fontWeight:"bold"}}>&#91; 리뷰 남기기 &#93;</p>
                <div className={styles.comment_wrap}>
-                <Comment />
+                <Comment UC_SEQ={id} />
                </div>
               </span>
               

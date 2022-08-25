@@ -1,12 +1,21 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from 'react-router-dom';
 import {useParams} from "react-router-dom";
 import InputUser from './InputUser';
 import ListUser from "./ListUser";
 import UpdateUser from "./UpdateUser";
 
-function Comment() {
+const saveComments = (UC_SEQ, comment) => {
+  const obj = localStorage.getItem(`${UC_SEQ}-comments`);
+  if(obj){
+    const newObj = JSON.parse(obj).concat(comment);
+    localStorage.setItem(`${UC_SEQ}-comments`, JSON.stringify(newObj));
+  }else {
+    localStorage.setItem(`${UC_SEQ}-comments`, JSON.stringify([].concat(comment)));
+  }
+}
 
+function Comment({ UC_SEQ }) {
   const [users, setUsers] = useState([]);
 
   const [inputs, setInputs] = useState({
@@ -15,12 +24,9 @@ function Comment() {
     review: ''
   });
 
-
-
   const { name, review } = inputs;
 
- 
-  const [nextId, setNextId] = useState(3);
+  const nextId = useRef(1);
 
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -33,15 +39,16 @@ function Comment() {
 
   const onAdd = () => {
     const newUser = {
-      id: nextId,
+      id: nextId.current,
       name: name,
       review: review
     }
 
     setUsers([...users, newUser]);
 
-    setNextId(nextId + 1);
+    saveComments(UC_SEQ, newUser);
 
+    nextId.current += 1;
     setInputs({
       name: '',
       review: ''
@@ -104,6 +111,7 @@ function Comment() {
         modify={onModify}
         onUpdateToggle={onUpdateToggle}
         onSelectUser={onSelectUser}
+        UC_SEQ={UC_SEQ}
       />
 
       {updateToggle && <UpdateUser selectedUser={selectedUser} onUpdate={onUpdate} />}
